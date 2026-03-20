@@ -1,0 +1,3 @@
+display_name: RN Mobile Workflow
+short_description: React Native, Android, and iOS workflow skill for root-cause debugging, bridge ownership, and performance analysis.
+default_prompt: Use rn-mobile-workflow to analyze this React Native, Android, or iOS issue. Separate RN, bridge, Android, and iOS ownership first, identify the root cause before editing, and prefer the smallest fix that resolves the actual problem.
