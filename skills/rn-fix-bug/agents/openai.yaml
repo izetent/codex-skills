@@ -1,0 +1,3 @@
+display_name: RN Fix Bug
+short_description: React Native bug-fixing skill focused on evidence, root cause, temporary logging, and closed-loop verification.
+default_prompt: Use rn-fix-bug to fix this bug. Investigate before editing, collect evidence, add temporary logs if needed, distinguish root cause from symptom, propose options if multiple fixes are viable, and verify the final fix with explicit regression checks.

@@ -6,7 +6,8 @@ It currently contains two skills:
 
 - `skills/rn-mobile-workflow`
 - `skills/rn-native-bridge`
-- `skills/bug-investigation-workflow`
+- `skills/rn-fix-bug`
+- `skills/rn-add-feature`
 
 ## Skills
 
@@ -47,9 +48,9 @@ Path:
 skills/rn-native-bridge
 ```
 
-### `bug-investigation-workflow`
+### `rn-fix-bug`
 
-Use for bug fixing tasks where Codex must investigate before editing, gather evidence, add temporary logs when needed, decide whether to present multiple options first, and always close the loop with verification.
+Use for React Native mobile bug fixing.
 
 Focus:
 
@@ -63,7 +64,25 @@ Focus:
 Path:
 
 ```text
-skills/bug-investigation-workflow
+skills/rn-fix-bug
+```
+
+### `rn-add-feature`
+
+Use for feature work in React Native mobile projects.
+
+Focus:
+
+- define the feature boundary first
+- decide whether it belongs in RN, bridge, Android, or iOS
+- keep the implementation incremental
+- avoid unnecessary architecture churn
+- verify the new path after implementation
+
+Path:
+
+```text
+skills/rn-add-feature
 ```
 
 ## Repository structure
@@ -78,7 +97,11 @@ skills/
     SKILL.md
     references/
     agents/
-  bug-investigation-workflow/
+  rn-fix-bug/
+    SKILL.md
+    references/
+    agents/
+  rn-add-feature/
     SKILL.md
     references/
     agents/
@@ -101,7 +124,8 @@ Skill paths:
 ```text
 skills/rn-mobile-workflow
 skills/rn-native-bridge
-skills/bug-investigation-workflow
+skills/rn-fix-bug
+skills/rn-add-feature
 ```
 
 If you install manually, clone the repo and copy the skill directory you need into your local Codex skills directory.
@@ -112,7 +136,8 @@ Example:
 git clone https://github.com/izetent/rn-mobile-workflow.git /tmp/rn-mobile-workflow
 cp -R /tmp/rn-mobile-workflow/skills/rn-mobile-workflow ~/.codex/skills/rn-mobile-workflow
 cp -R /tmp/rn-mobile-workflow/skills/rn-native-bridge ~/.codex/skills/rn-native-bridge
-cp -R /tmp/rn-mobile-workflow/skills/bug-investigation-workflow ~/.codex/skills/bug-investigation-workflow
+cp -R /tmp/rn-mobile-workflow/skills/rn-fix-bug ~/.codex/skills/rn-fix-bug
+cp -R /tmp/rn-mobile-workflow/skills/rn-add-feature ~/.codex/skills/rn-add-feature
 ```
 
 Then restart Codex.
@@ -126,7 +151,9 @@ Use rn-native-bridge to review this TurboModule API design.
 
 Use rn-native-bridge to determine whether this layout mismatch is caused by RN host size, native viewport size, or content render mode.
 
-Use bug-investigation-workflow to investigate this bug before editing, add temporary logs if needed, and only fix it after the root cause is confirmed.
+Use rn-fix-bug to investigate this bug before editing, add temporary logs if needed, and only fix it after the root cause is confirmed.
+
+Use rn-add-feature to implement this new feature with the smallest correct RN or native boundary.
 ```
 
 ## Language

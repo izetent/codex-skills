@@ -1,0 +1,3 @@
+display_name: RN Add Feature
+short_description: React Native feature implementation skill for small, layer-aware, incremental changes.
+default_prompt: Use rn-add-feature to implement this feature. Clarify the scope first, decide whether the work belongs in RN, bridge, Android, or iOS, keep the implementation incremental, and verify the new path after the change.

@@ -1,11 +1,11 @@
 ---
-name: bug-investigation-workflow
-description: Use for bug fixing tasks where Codex must investigate before editing, collect evidence, use logs or add temporary logs when needed, distinguish root cause from symptom, propose options when multiple viable fixes exist, apply direct minimal fixes only when the root cause is clear, and always close the loop with targeted verification and regression checks.
+name: rn-fix-bug
+description: Use for React Native mobile bug fixes. Investigate before editing, collect evidence, use logs or add temporary logs when needed, distinguish root cause from symptom, propose options when multiple viable fixes exist, apply direct minimal fixes only when the cause is clear, and always verify the final fix and nearby regressions.
 ---
 
-# Bug Investigation Workflow
+# RN Fix Bug
 
-Use this skill for bug fixing tasks where incorrect guessing, broad patches, or missing verification would create regressions.
+Use this skill when the task is to fix a bug in a React Native, Android, iOS, or bridge-related code path.
 
 ## Core rules
 

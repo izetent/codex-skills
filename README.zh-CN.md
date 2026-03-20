@@ -6,7 +6,8 @@
 
 - `skills/rn-mobile-workflow`
 - `skills/rn-native-bridge`
-- `skills/bug-investigation-workflow`
+- `skills/rn-fix-bug`
+- `skills/rn-add-feature`
 
 ## 当前包含的 skill
 
@@ -47,9 +48,9 @@ skills/rn-mobile-workflow
 skills/rn-native-bridge
 ```
 
-### `bug-investigation-workflow`
+### `rn-fix-bug`
 
-用于 bug 修复专项，强调修改前先定位、先拿证据、必要时补临时日志、多方案先给方案、修改后必须闭环验证。
+用于 React Native 移动端 bug 修复。
 
 重点包括：
 
@@ -63,7 +64,25 @@ skills/rn-native-bridge
 路径：
 
 ```text
-skills/bug-investigation-workflow
+skills/rn-fix-bug
+```
+
+### `rn-add-feature`
+
+用于 React Native 移动端新增功能。
+
+重点包括：
+
+- 先明确功能边界
+- 先判断归属 RN、bridge、Android 还是 iOS
+- 优先做增量实现
+- 避免为了一个小功能做大重构
+- 修改后验证新增路径
+
+路径：
+
+```text
+skills/rn-add-feature
 ```
 
 ## 仓库结构
@@ -78,7 +97,11 @@ skills/
     SKILL.md
     references/
     agents/
-  bug-investigation-workflow/
+  rn-fix-bug/
+    SKILL.md
+    references/
+    agents/
+  rn-add-feature/
     SKILL.md
     references/
     agents/
@@ -101,7 +124,8 @@ skill 路径：
 ```text
 skills/rn-mobile-workflow
 skills/rn-native-bridge
-skills/bug-investigation-workflow
+skills/rn-fix-bug
+skills/rn-add-feature
 ```
 
 如果你使用手动安装，可以先克隆仓库，再把需要的 skill 目录拷贝到本地 skills 目录。
@@ -112,7 +136,8 @@ skills/bug-investigation-workflow
 git clone https://github.com/izetent/rn-mobile-workflow.git /tmp/rn-mobile-workflow
 cp -R /tmp/rn-mobile-workflow/skills/rn-mobile-workflow ~/.codex/skills/rn-mobile-workflow
 cp -R /tmp/rn-mobile-workflow/skills/rn-native-bridge ~/.codex/skills/rn-native-bridge
-cp -R /tmp/rn-mobile-workflow/skills/bug-investigation-workflow ~/.codex/skills/bug-investigation-workflow
+cp -R /tmp/rn-mobile-workflow/skills/rn-fix-bug ~/.codex/skills/rn-fix-bug
+cp -R /tmp/rn-mobile-workflow/skills/rn-add-feature ~/.codex/skills/rn-add-feature
 ```
 
 然后重启 Codex。
@@ -126,7 +151,9 @@ Use rn-native-bridge to review this TurboModule API design.
 
 Use rn-native-bridge to determine whether this layout mismatch is caused by RN host size, native viewport size, or content render mode.
 
-Use bug-investigation-workflow to investigate this bug before editing, add temporary logs if needed, and only fix it after the root cause is confirmed.
+Use rn-fix-bug to investigate this bug before editing, add temporary logs if needed, and only fix it after the root cause is confirmed.
+
+Use rn-add-feature to implement this new feature with the smallest correct RN or native boundary.
 ```
 
 ## 语言说明

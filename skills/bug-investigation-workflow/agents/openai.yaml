@@ -1,3 +1,0 @@
-display_name: Bug Investigation Workflow
-short_description: Root-cause-first bug fixing skill with evidence gathering, temporary logging, option selection, and closed-loop verification.
-default_prompt: Use bug-investigation-workflow to fix this bug. Investigate before editing, collect evidence, add temporary logs if needed, distinguish root cause from symptom, propose options if multiple fixes are viable, and verify the final fix with explicit regression checks.
