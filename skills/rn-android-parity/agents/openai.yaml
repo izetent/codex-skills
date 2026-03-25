@@ -1,0 +1,3 @@
+display_name: RN 对齐 Android
+short_description: 严格对齐 RN、禁止写死、强调自适应与最小改动。
+default_prompt: 使用 $rn-android-parity 按 RN 1:1 迁移或修复这个 Android 原生页面，先定位根因，再做最小修改，禁止写死样式，并通过主题、缩放、安全区和测量实现自适应还原。
