@@ -1,0 +1,3 @@
+display_name: Android 开发规范
+short_description: 面向中文团队的 Android 工程 skill，强调先定位根因、严格模块边界、复杂页面拆分和自适应布局。
+default_prompt: 使用 android-dev-standard 处理这个 Android 任务。先分析现状和证据，再判断模块边界与状态归属；复杂页面按职责拆分，自适应布局优先靠窗口信息、约束和主题 token；在根因明确后做最小必要修改，并验证原路径和邻近回归路径。
