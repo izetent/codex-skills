@@ -1,3 +1,3 @@
-display_name: RN Native Bridge
-short_description: React Native bridge skill for Native Modules, Native Components, TurboModules, Fabric, JSI, sizing boundaries, and hot-path ownership.
-default_prompt: Use rn-native-bridge to analyze this bridge-related issue. Identify ownership, lifecycle, event and command boundaries, and whether the classic bridge is being used for work that should stay native or move to a UI-thread or JSI-backed path.
+display_name: RN 原生桥接
+short_description: RN 桥接规范，覆盖 Native Module、Native Component、TurboModule、Fabric、JSI、尺寸边界和热路径归属。
+default_prompt: 使用 rn-native-bridge 分析这个桥接问题。先明确状态归属、生命周期、事件与命令边界，并判断 classic bridge 是否承载了应留在原生、UI 线程或 JSI 同步路径中的工作。

@@ -1,6 +1,6 @@
 ---
 name: android-architecture-bootstrap
-description: Use for designing, reviewing, or bootstrapping a production-grade native Android architecture in Kotlin projects. Good for new projects, monolith-to-modular migrations, module blueprint design, multi-app family architecture, build-logic and Gradle governance, dependency locking, flavor capability matrix design, test infrastructure planning, data and state modeling, performance baseline planning, compatibility adaptation, observability, security, release strategy, and architecture reviews. Start by clarifying product scope, team size, device support, app family shape, offline requirements, distribution constraints, and integration complexity; then choose the smallest enforceable architecture and define compile-time rules before implementation.
+description: "用于 Kotlin 项目中生产级原生 Android 架构的设计、评审或从 0 搭建。适用于新项目、单体到模块化迁移、模块蓝图、多 App 同仓、build logic 与 Gradle 治理、依赖锁定、flavor 能力矩阵、测试基础设施、数据与状态建模、性能基线、兼容适配、可观测性、安全、发布策略和架构评审。先明确产品范围、团队规模、设备支持、App 家族形态、离线要求、分发约束和集成复杂度，再选择最小可执行架构并定义编译期规则。"
 ---
 
 # Android 架构搭建

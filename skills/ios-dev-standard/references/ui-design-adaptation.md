@@ -22,6 +22,8 @@
 - Loading、Empty、Error、禁用、选中、按下状态完整。
 - 视觉不能只在一台设备上成立。
 
+组件状态、表单键盘、本地化、Dynamic Type、无障碍和 Loading/Empty/Error 细节，必须继续读取 `native-ios-ui-detail-checklist.md`。
+
 ## 共享组件
 
 项目初期规划：

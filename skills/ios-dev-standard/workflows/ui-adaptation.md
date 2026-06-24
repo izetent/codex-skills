@@ -1,4 +1,4 @@
-# UI Adaptation Workflow
+# UI 适配流程
 
 1. 明确设计意图：
    - 信息层级

@@ -1,4 +1,4 @@
-# Core Principles
+# 核心原则
 
 ## 证据优先
 

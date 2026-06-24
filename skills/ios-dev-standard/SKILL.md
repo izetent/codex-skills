@@ -1,6 +1,6 @@
 ---
 name: ios-dev-standard
-description: "Use for native iOS development tasks in Swift, SwiftUI, UIKit, or mixed projects, especially when the work involves project scaffolding, architecture design, feature development, bug fixing, page decomposition, adaptive layout, design-system enforcement, state ownership, networking, caching, storage, authentication, concurrency, lifecycle, performance, accessibility, testing, delivery review, or code review. Apply senior iOS engineering judgment: investigate before edits, preserve architecture boundaries, use minimal responsible-layer changes, enforce visual quality, and verify original plus nearby regression paths."
+description: "用于 Swift、SwiftUI、UIKit 或混合项目中的原生 iOS 开发任务。适用于项目脚手架、架构设计、功能开发、Bug 修复、页面拆分、自适应布局、设计系统约束、状态归属、网络、缓存、存储、鉴权、并发、生命周期、性能、无障碍、测试、交付和代码审查。要求先调查再修改，保护架构边界，只做最小责任层修改，保证视觉质量，并验证原路径和邻近回归路径。"
 ---
 
 # iOS 开发规范
@@ -38,10 +38,14 @@ description: "Use for native iOS development tasks in Swift, SwiftUI, UIKit, or 
 - 只改真正负责问题的层，不顺手扩散重构。
 - App 壳层只负责启动、窗口、导航宿主、依赖组装、生命周期转发。
 - 页面只负责 UI 编排、事件绑定和展示，不直接请求网络、读数据库、读 Keychain。
+- 业务代码只调用语义化能力；网络、埋点、权限、支付、分享、存储、第三方 SDK 等底层细节必须收口到 Core/Data/Adapter/Repository。
 - 跨页面共享状态必须有单一真相源。
 - 导航、Toast、Dialog、权限结果、支付结果等一次性事件不能放进可重放状态。
 - 样式优先走主题、设计系统和共享组件。
 - 布局优先靠 Safe Area、Auto Layout、SwiftUI Layout、Size Class、窗口尺寸和 Dynamic Type。
+- 涉及复杂页面设计、页面拆分、Section/Row/Component 边界、页面数据治理时，必须读取并执行 `references/native-ios-page-composition.md`。
+- 涉及原生 iOS 样式、数据归属、状态保留、Tab 列表状态时，必须读取并执行 `references/native-ios-style-data-state.md`，按其中错误写法和正确写法做实现或 Review 判断。
+- 涉及组件状态、表单、键盘、本地化、Dynamic Type、无障碍、Loading/Empty/Error 细节时，必须读取并执行 `references/native-ios-ui-detail-checklist.md`。
 - 修改后验证原始路径和邻近回归路径。
 
 ## 工作流程
@@ -77,7 +81,11 @@ description: "Use for native iOS development tasks in Swift, SwiftUI, UIKit, or 
 | 新增功能 | `workflows/add-feature.md`, `references/task-routing.md`, `references/architecture-state.md` |
 | 修 Bug | `workflows/fix-bug.md`, `references/task-routing.md`, `references/gotchas.md` |
 | 页面拆分或状态治理 | `workflows/add-feature.md`, `references/architecture-state.md` |
+| 复杂页面设计、页面拆分、页面数据治理 | `references/native-ios-page-composition.md` |
 | UI 设计还原或适配 | `workflows/ui-adaptation.md`, `references/ui-design-adaptation.md` |
+| 原生 iOS 样式、数据归属、状态保留规范 | `references/native-ios-style-data-state.md` |
+| UI 细节、组件状态、表单键盘、本地化、无障碍 | `references/native-ios-ui-detail-checklist.md` |
+| 能力封装、第三方 SDK、埋点、请求、权限、存储调用边界 | `references/native-ios-capability-boundaries.md` |
 | 网络、缓存、存储、鉴权 | `workflows/add-feature.md`, `references/data-network-storage.md` |
 | 并发、生命周期、性能 | `workflows/fix-bug.md`, `references/concurrency-lifecycle-performance.md` |
 | 代码审查 | `workflows/review.md`, `references/quality-review-delivery.md` |
@@ -91,9 +99,14 @@ description: "Use for native iOS development tasks in Swift, SwiftUI, UIKit, or 
 遇到以下信号时，自动追加读取对应文件：
 
 - 出现 `Task`、`async`、`await`、`MainActor`、`Timer`、`NotificationCenter`、`Combine`：读 `references/concurrency-lifecycle-performance.md`
+- 出现“竞态 / race / 异步请求 / 搜索 / 分页 / 刷新 / 重复提交 / requestID / 取消任务 / 旧请求覆盖新状态”：读 `references/concurrency-lifecycle-performance.md`
 - 出现 `URLSession`、`token`、`cache`、`Keychain`、`UserDefaults`、`database`：读 `references/data-network-storage.md`
 - 出现 `GeometryReader`、`UIScreen.main.bounds`、`safeArea`、`keyboard`、`Dynamic Type`、`iPad`：读 `references/ui-design-adaptation.md`
+- 出现“表单 / 输入框 / 键盘 / 焦点 / 本地化 / String Catalog / 无障碍 / VoiceOver / accessibility / Loading / Empty / Error / disabled / selected / pressed / 长文案”：读 `references/native-ios-ui-detail-checklist.md`
 - 出现 `Coordinator`、`ViewModel`、`Repository`、`Session`、`UseCase`：读 `references/architecture-state.md`
+- 出现“能力封装 / 业务调用 / 第三方 SDK / 埋点 / 权限 / 支付 / 分享 / post / get / request / URL / API path / 系统 API / UserDefaults.standard”：读 `references/native-ios-capability-boundaries.md`
+- 出现“复杂页面 / 页面设计 / 页面拆分 / 按功能拆 / 按模块拆 / Section / Row / Component / 页面数据管理 / 表单草稿 / 筛选条件”：读 `references/native-ios-page-composition.md`
+- 出现“样式写法 / 数据放哪里 / 固定宽高 / 写死样式 / Tab 状态 / 滚动位置 / 全局状态 / 本地缓存 / 错误写法和正确写法”：读 `references/native-ios-style-data-state.md`
 - 出现 “review / 评审 / 看下代码 / 有没有问题”：读 `workflows/review.md`
 
 ## Red Flags — Stop And Re-Route
@@ -101,6 +114,7 @@ description: "Use for native iOS development tasks in Swift, SwiftUI, UIKit, or 
 出现以下情况，暂停编辑并重新判断层级：
 
 - 准备在页面里直接发网络请求。
+- 准备在 Feature、ViewModel、Section、Row 或 Component 里直接写 URL、接口 path、`post/get/request`、第三方 SDK、系统 API、UserDefaults 或 Keychain。
 - 准备在页面里直接读写数据库、Keychain 或旧存储。
 - 准备把导航、Toast、Dialog、支付结果、权限结果放进长期 state。
 - 准备用延时、强刷、重复请求或 fallback 掩盖问题。

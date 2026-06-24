@@ -1,20 +1,20 @@
-# Bridge Validation
+# 桥接验证
 
-Use this before closing a bridge-related task.
+桥接相关任务收口前必须读取本文件。
 
-## Validate these explicitly
+## 必须明确验证
 
-- API shape on the RN side
-- API shape on Android
-- API shape on iOS
-- generated code if TurboModule or Fabric is involved
-- backward compatibility for event names and payload shapes
-- command ordering assumptions
-- sizing behavior if layout-related fields changed
+- RN 侧 API 形态
+- Android 侧 API 形态
+- iOS 侧 API 形态
+- 涉及 TurboModule 或 Fabric 时的生成代码
+- 事件名和 payload 结构的向后兼容性
+- 命令顺序假设
+- 修改布局相关字段后的尺寸行为
 
-## Report clearly
+## 必须清楚说明
 
-- what changed in the contract
-- whether any call sites must change
-- whether Android and iOS still behave the same
-- whether any timing-sensitive path remains unverified
+- contract 改了什么
+- 是否有调用点必须同步修改
+- Android 和 iOS 行为是否仍一致
+- 是否仍有时序敏感路径未验证

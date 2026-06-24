@@ -1,6 +1,6 @@
 ---
 name: android-dev-standard
-description: Use for native Android development tasks in Kotlin projects, especially when the work involves modularization, architecture, feature development, bug fixing, page decomposition, Compose or XML UI structure, adaptive layout, data flow, testing, or code review. Prioritize root-cause analysis before edits, keep changes minimal and direct, enforce module boundaries, and verify the original path plus nearby regressions.
+description: "用于 Kotlin 项目中的原生 Android 开发任务，尤其适用于模块化、架构、功能开发、Bug 修复、页面拆分、Compose 或 XML 页面结构、自适应布局、数据流、测试和代码审查。要求编辑前优先做根因分析，修改保持最小、直接、稳定，强制遵守模块边界，并验证原始路径和邻近回归路径。"
 ---
 
 # Android 开发规范

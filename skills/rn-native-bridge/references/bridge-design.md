@@ -1,27 +1,27 @@
-# Bridge Design
+# 桥接设计
 
-Use this when defining or reviewing the shape of a bridge API.
+定义或评审桥接 API 形态时读取本文件。
 
-## Prefer explicit contracts
+## 优先明确 contract
 
-- commands should represent intent
-- events should represent observation
-- avoid catch-all dictionaries unless the native API is itself dynamic
+- 命令应表达意图
+- 事件应表达观察到的状态
+- 除非原生 API 本身就是动态结构，否则避免使用包罗万象的字典
 
-## Identity rules
+## 身份规则
 
-- stable business identity should use `itemId`
-- `index` is only a positional helper
-- avoid commands that depend on stale visible index assumptions
+- 稳定业务身份应使用 `itemId`
+- `index` 只能作为位置辅助信息
+- 避免依赖过期可见 index 假设的命令
 
-## Ownership rules
+## 归属规则
 
-- RN owns business UI and low-frequency product state
-- native owns timing-sensitive rendering and playback state
-- shared ownership should be treated as a bug until proven otherwise
+- RN 持有业务 UI 和低频产品状态
+- 原生持有时序敏感的渲染和播放状态
+- 共享所有权默认视为问题，除非能证明它有清晰边界
 
-## Avoid
+## 避免
 
-- one API that mixes data mutation, playback control, and visual sync
-- hidden state transitions caused by event callbacks
-- commands that require RN to know native internal timing
+- 一个 API 同时混合数据变更、播放控制和视觉同步
+- 事件回调触发隐藏状态转换
+- 命令要求 RN 理解原生内部时序

@@ -1,23 +1,23 @@
-# Threading And Lifecycle
+# 线程和生命周期
 
-Use this for event ordering, race conditions, and native lifecycle mismatches.
+处理事件顺序、竞态和原生生命周期不一致问题时读取本文件。
 
-## Inspect first
+## 先检查
 
-- which thread emits the event
-- which thread receives the command
-- whether the command can arrive after the native state has already changed
-- whether view reuse or teardown can invalidate the current bridge target
+- 哪个线程发出事件
+- 哪个线程接收命令
+- 命令是否可能在原生状态已经变化后才到达
+- View 复用或销毁是否会让当前桥接目标失效
 
-## Common root causes
+## 常见根因
 
-- JS sends a command based on stale visible state
-- native emits events after the target view is already recycled
-- lifecycle ownership is split across RN screen, native view, and native player
-- two sides believe they are allowed to trigger the same transition
+- JS 基于过期可见状态发送命令
+- 原生在目标 View 已经复用后仍发出事件
+- 生命周期归属被拆散到 RN 页面、原生 View 和原生播放器之间
+- 两侧都认为自己可以触发同一个状态转换
 
-## Avoid
+## 避免
 
-- fixing race conditions with arbitrary delays
-- assuming event order equals visual order
-- assuming screen mount equals native view readiness
+- 用任意延时修复竞态
+- 假设事件顺序等于视觉顺序
+- 假设页面 mount 等于原生 View 已准备好

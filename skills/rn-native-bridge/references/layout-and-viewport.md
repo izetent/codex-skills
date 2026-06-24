@@ -1,30 +1,30 @@
-# Layout And Viewport Ownership
+# 布局和视口归属
 
-Use this for size mismatches between RN layout and native rendering.
+处理 RN 布局尺寸和原生渲染尺寸不一致时读取本文件。
 
-## Distinguish three layers
+## 区分三层尺寸
 
-1. RN host size
-2. native root container size
-3. actual video or render viewport size
+1. RN 宿主尺寸
+2. 原生根容器尺寸
+3. 真实视频或渲染视口尺寸
 
-These are not automatically the same thing.
+这三者不会自动等同。
 
-## Recommended rule
+## 推荐规则
 
-- RN decides the host frame
-- native decides the viewport frame
-- render mode decides how content fits inside the viewport
+- RN 决定宿主 frame
+- 原生决定 viewport frame
+- 渲染模式决定内容如何适配 viewport
 
-## Common failure modes
+## 常见失败模式
 
-- RN stretches host size and native content also stretches unexpectedly
-- RN host changes but native viewport does not update
-- viewport is correct but content mode makes the visual result look wrong
-- bridge API treats host size and viewport size as the same value
+- RN 拉伸宿主尺寸，原生内容也被意外拉伸
+- RN 宿主尺寸变化，但原生 viewport 没有更新
+- viewport 正确，但 content mode 让视觉结果看起来错误
+- 桥接 API 把宿主尺寸和 viewport 尺寸当成同一个值
 
-## Avoid
+## 避免
 
-- assuming host size equals actual render area
-- letting business text height directly drive video viewport sizing
-- using classic bridge for per-frame layout sync
+- 假设宿主尺寸等于真实渲染区域
+- 让业务文本高度直接驱动视频 viewport 尺寸
+- 使用 classic bridge 做逐帧布局同步

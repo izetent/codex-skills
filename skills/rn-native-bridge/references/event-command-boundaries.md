@@ -1,10 +1,10 @@
-# Event And Command Boundaries
+# 事件和命令边界
 
-Use this file when deciding what should be an event and what should be a command.
+判断什么应该是事件、什么应该是命令时读取本文件。
 
-## Commands
+## 命令
 
-Good command examples:
+好的命令示例：
 
 - `setData(items)`
 - `appendData(items)`
@@ -14,28 +14,28 @@ Good command examples:
 - `pauseCurrent()`
 - `resumeCurrent()`
 
-Commands should:
+命令应该：
 
-- be explicit
-- be idempotent where practical
-- not depend on hidden native state
+- 明确表达意图
+- 在可行时保持幂等
+- 不依赖隐藏的原生状态
 
-## Events
+## 事件
 
-Good event examples:
+好的事件示例：
 
 - `onCurrentItemChange`
 - `onReachEnd`
 - `onPlayStateChange`
 - `onError`
 
-Events should:
+事件应该：
 
-- describe what happened
-- avoid requiring JS to immediately send corrective timing commands
+- 描述已经发生了什么
+- 避免要求 JS 立刻发送纠正时序的命令
 
-## Avoid
+## 避免
 
-- event streams used for frame-by-frame visual sync over classic bridge
-- event payloads that force JS to reconstruct native internal state
-- command names that hide side effects
+- 通过 classic bridge 事件流做逐帧视觉同步
+- 让 JS 被迫重建原生内部状态的事件 payload
+- 隐藏副作用的命令名
